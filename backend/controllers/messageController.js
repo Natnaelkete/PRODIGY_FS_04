@@ -28,11 +28,6 @@ export const createMessage = asyncHandler(async (req, res, next) => {
       conversation.message.push(newMessage._id);
     }
 
-    // This will run step-by-step not in parallel
-    // await conversation.save();
-    // await newMessage.save();
-
-    // This will run in Parallel
     await Promise.all([conversation.save(), newMessage.save()]);
 
     const receiverSocketId = getReceiverSocketId(receiverId);
