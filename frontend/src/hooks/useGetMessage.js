@@ -7,6 +7,7 @@ function useGetMessage(id) {
     queryKey: ["message", id],
     queryFn: () => GetMessageApi(id),
     onError: (err) => toast.error(err.response.data.message),
+    enabled: !!id,
   });
 
   return { messages, isLoading };

@@ -1,8 +1,9 @@
 import { IoIosSend } from "react-icons/io";
 import MessageContainer from "./MessageContainer";
 import useCreateMessage from "../hooks/useCreateMessage";
+import { RxHamburgerMenu } from "react-icons/rx";
 
-function Main({ userId }) {
+function Main({ userId, setOpen }) {
   const { createMessage } = useCreateMessage();
 
   function handleSubmit(e) {
@@ -14,7 +15,11 @@ function Main({ userId }) {
   }
 
   return (
-    <div className="flex flex-col h-full justify-center items-center">
+    <div className="flex flex-col h-full justify-center items-center ">
+      <RxHamburgerMenu
+        className="fixed top-10 left-10 size-6 sm:hidden cursor-pointer"
+        onClick={() => setOpen((previous) => !previous)}
+      />
       <div className="h-[70%] w-[60%] pt-10 ">
         <MessageContainer userId={userId} />
       </div>

@@ -14,7 +14,7 @@ export const SocketContextProvider = ({ children }) => {
   const { user } = useAuth();
 
   // This is only to Collect Messages has no relation with Socket
-  const [messages, setMessages] = useState([]);
+  const [socketMessages, setSocketMessages] = useState([]);
 
   useEffect(() => {
     if (user) {
@@ -42,7 +42,7 @@ export const SocketContextProvider = ({ children }) => {
 
   return (
     <SocketContext.Provider
-      value={{ socket, onlineUsers, messages, setMessages }}
+      value={{ socket, onlineUsers, socketMessages, setSocketMessages }}
     >
       {children}
     </SocketContext.Provider>
