@@ -20,12 +20,12 @@ function Main({ userId, setOpen }) {
         className="fixed top-10 left-10 size-6 sm:hidden cursor-pointer"
         onClick={() => setOpen((previous) => !previous)}
       />
-      <div className="h-[70%] w-[60%] pt-10 ">
+      <div className="h-[70%] w-full lg:w-[60%] pt-10 ">
         <MessageContainer userId={userId} />
       </div>
       {userId && (
         <div className="flex justify-center  w-full ">
-          <form className="relative w-[70%]" onSubmit={handleSubmit}>
+          <form className="relative w-full  lg:w-[70%]" onSubmit={handleSubmit}>
             <input
               name="message"
               autoComplete="off"
