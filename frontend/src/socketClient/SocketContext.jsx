@@ -18,7 +18,7 @@ export const SocketContextProvider = ({ children }) => {
 
   useEffect(() => {
     if (user) {
-      const socket = io("https://random-chats.onrender.com/", {
+      const socket = io("https://all-random-chats.onrender.com/", {
         query: {
           userId: user._id,
         },
