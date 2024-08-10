@@ -28,6 +28,7 @@ function Main({ userId, setOpen }) {
           <form className="relative w-[70%]" onSubmit={handleSubmit}>
             <input
               name="message"
+              autoComplete="off"
               className="bg-[var(--light-background)] p-4 pl-10 pr-10 border-none rounded-full shadow-lg w-full"
             />
             <button>

@@ -3,11 +3,13 @@ import useLogout from "../hooks/useLogout";
 import useGetUsers from "../hooks/useGetUsers";
 import { useState } from "react";
 import { useSocketContext } from "../socketClient/SocketContext";
+import { useAuth } from "./AuthProvider";
 
 function Sidebar({ setUserId, userId }) {
   const [selected, setSelected] = useState(false);
   const { logout } = useLogout();
   const { users } = useGetUsers();
+  const { user } = useAuth();
   const { onlineUsers } = useSocketContext();
 
   function handleClick() {
@@ -46,7 +48,7 @@ function Sidebar({ setUserId, userId }) {
           className="w-[30px] h-[30px] cursor-pointer"
           onClick={handleClick}
         />
-        <p>Kebede</p>
+        <p>{user.username}</p>
       </div>
     </div>
   );
